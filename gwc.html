@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>购物车</title>
+    <link rel="stylesheet" href="./css/shopping.css">
+    <link rel="stylesheet" href="./css/iconfont.css">
+    <link rel="icon" href="./images/favicon.ico">
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <div class="header">
+                <div class="container">
+                    <div class="header-logo">
+                        <a href="javascript: ;"><img src="./images/logo.jpg" alt=""></a>
+                    </div>
+                    <div class="header-title">
+                        <div class="title">
+                            <h2>我的购物车</h2>
+                            <p>温馨提示：产品是否购买成功，以最终下单为准哦，请尽快结算</p>
+                        </div>
+                        <div class="topbar">
+                            <span class="user">
+                                <a href="javascript:;">
+                                    <span class="name">陌上</span>
+                                </a>
+                                <ul class="user-menu">
+                                    <li><a href="javascript:;">个人中心</a></li>
+                                    <li><a href="javascript:;">评价晒单</a></li>
+                                    <li><a href="javascript:;">我的喜欢</a></li>
+                                    <li><a href="javascript:;">小米账户</a></li>
+                                    <li><a href="javascript:;">退出登录</a></li>
+                                 </ul>
+                            </span>
+                            <span class="=sep">|</span>
+                            <a href="javascript:;" class="link">我的订单</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="th">
+                <div class="th1"><input type="checkbox" v-model="isAllCheck" @change="handChangeAll"></div>
+                <div class="th2">商品名称</div>
+                <div class="th3">单价</div>
+                <div class="th4">数量</div>
+                <div class="th5">小计</div>
+                <div class="th6">操作</div>
+            </div>
+            <!-- 购物车 -->
+            <div class="tr" v-for="(item, index) in list">
+                <div class="th1"><input type="checkbox" v-model="item.isCheck"></div>
+                <div class="th2">
+                    <img :src="item.bgSrc">
+                    <span>{{item.name}}</span>
+                </div>
+                <div class="th3">{{item.price}}元</div>
+                <div class="th4">
+                    <div class="goods-num">
+                        <button @click="handClickReduce(index)"> - </button> 
+                        <input v-model="item.num" class="num-cls" type="text"> 
+                        <button @click="handClickAdd(index)"> + </button>
+                    </div>
+                </div>
+                <div class="th5">{{(item.price * item.num).toFixed(2)}}元</div>
+                <div class="th6"><button @click="handClickDel(index)"> X </button></div>
+            </div>
+            <!-- 底部 -->
+            <div class="bot">
+                <div class="bot-l">已选择{{allPirces}}件</div>
+                <div class="bot-r">
+                    <span>合计：<span class="big">{{allPirce}}</span>元</span>
+                    <div class="balance">
+                        结算
+                    </div>
+                </div>
+            </div>
+            <div class="cart-wrap">
+                <h2 class="recommend">
+                    <span>买购物车中商品的人还买了</span>
+                </h2>
+                <div class="recommend-bd">
+                    <ul>
+                        <li>
+                            <div class="item">
+                                <a href="javascript:;">
+                                    <img src="./images/手机1.webp" alt="" class="images">
+                                    <p class="title1">Xiaomi 14 Ultra</p>
+                                    <p class="desc">1999元</p>
+                                    <p class="price">124.7万人好评</p>
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item">
+                                <a href="javascript:;">
+                                    <img src="./images/手机1.webp" alt="" class="images">
+                                    <p class="title1">Xiaomi 14 Ultra</p>
+                                    <p class="desc">1999元</p>
+                                    <p class="price">124.7万人好评</p>
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item">
+                                <a href="javascript:;">
+                                    <img src="./images/手机1.webp" alt="" class="images">
+                                    <p class="title1">Xiaomi 14 Ultra</p>
+                                    <p class="desc">1999元</p>
+                                    <p class="price">124.7万人好评</p>
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item">
+                                <a href="javascript:;">
+                                    <img src="./images/手机1.webp" alt="" class="images">
+                                    <p class="title1">Xiaomi 14 Ultra</p>
+                                    <p class="desc">1999元</p>
+                                    <p class="price">124.7万人好评</p>
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item">
+                                <a href="javascript:;">
+                                    <img src="./images/手机1.webp" alt="" class="images">
+                                    <p class="title1">Xiaomi 14 Ultra</p>
+                                    <p class="desc">1999元</p>
+                                    <p class="price">124.7万人好评</p>
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item">
+                                <a href="javascript:;">
+                                    <img src="./images/手机1.webp" alt="" class="images">
+                                    <p class="title1">Xiaomi 14 Ultra</p>
+                                    <p class="desc">1999元</p>
+                                    <p class="price">124.7万人好评</p>
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item">
+                                <a href="javascript:;">
+                                    <img src="./images/手机1.webp" alt="" class="images">
+                                    <p class="title1">Xiaomi 14 Ultra</p>
+                                    <p class="desc">1999元</p>
+                                    <p class="price">124.7万人好评</p>
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item">
+                                <a href="javascript:;">
+                                    <img src="./images/手机1.webp" alt="" class="images">
+                                    <p class="title1">Xiaomi 14 Ultra</p>
+                                    <p class="desc">1999元</p>
+                                    <p class="price">124.7万人好评</p>
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item">
+                                <a href="javascript:;">
+                                    <img src="./images/手机1.webp" alt="" class="images">
+                                    <p class="title1">Xiaomi 14 Ultra</p>
+                                    <p class="desc">1999元</p>
+                                    <p class="price">124.7万人好评</p>
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item">
+                                <a href="javascript:;">
+                                    <img src="./images/手机1.webp" alt="" class="images">
+                                    <p class="title1">Xiaomi 14 Ultra</p>
+                                    <p class="desc">1999元</p>
+                                    <p class="price">124.7万人好评</p>
+                                </a>
+                            </div>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="footer-top">
+                    <div class="wrap">
+                        <div class="footer-server">
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <i class="iconfont">&#xe502;</i>
+                                        <span>预约维修服务</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="iconfont">&#xe506;</i>
+                                        <span>7天无理由退货</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="iconfont">&#xe60c;</i>
+                                        <span>15天免费换货</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="iconfont">&#xf01da;</i>
+                                        <span>满69包邮</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="iconfont">&#xe61a;</i>
+                                        <span>1100余家售后网点</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="footer-links">
+                            <ul>
+                                <li><a href="">选购指南</a></li>
+                                <li><a href="#">手机</a></li>
+                                <li><a href="#">电视</a></li>
+                                <li><a href="#">笔记本</a></li>
+                                <li><a href="#">平板</a></li>
+                                <li><a href="#">穿戴</a></li>
+                                <li><a href="#">耳机</a></li>
+                                <li><a href="#">家电</a></li>
+                                <li><a href="#">路由器</a></li>
+                                <li><a href="#">音箱</a></li>
+                                <li><a href="#">配件</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="">服务中心</a></li>
+                                <li><a href="#">申请售后</a></li>
+                                <li><a href="#">售后政策</a></li>
+                                <li><a href="#">维修服务价格</a></li>
+                                <li><a href="#">订单查询</a></li>
+                                <li><a href="#">以旧换新</a></li>
+                                <li><a href="#">保障服务</a></li>
+                                <li><a href="#">防伪查询</a></li>
+                                <li><a href="#">F码通道</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="">线下门店</a></li>
+                                <li><a href="#">小米之家</a></li>
+                                <li><a href="#">服务网点</a></li>
+                                <li><a href="#">授权体验店/专区</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="">关于小米</a></li>
+                                <li><a href="#">了解小米</a></li>
+                                <li><a href="#">加入小米</a></li>
+                                <li><a href="#">投资者关系</a></li>
+                                <li><a href="#">可持续发展</a></li>
+                                <li><a href="#">廉洁举报</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="">关注我们</a></li>
+                                <li><a href="#">新浪微博</a></li>
+                                <li><a href="#">官方微信</a></li>
+                                <li><a href="#">联系我们</a></li>
+                                <li><a href="#">公益基金会</a></li>
+                            </ul>
+                            <div class="contact">
+                                <p>400-100-5678</p>
+                                <p>8:00-18:00(仅收市话费)</p>
+                                <a href="#" class="btn"><i class="iconfont">&#xe93e;</i>人工客服</a>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="wrap">
+                        <div class="footer-logo">
+                            <img src="./images/logo.jpg" alt="">
+                        </div>
+                        <div class="sites">
+                            <p>
+                                <a rel="nofollow" href="#" target="_blank">小米商城</a>
+                                <span class="sep">|</span>
+                                <a rel="nofollow" href="#" target="_blank">小米澎湃OS</a>
+                                <span class="sep">|</span>
+                                <a rel="nofollow" href="#" target="_blank">米家</a>
+                                <span class="sep">|</span>
+                                <a rel="nofollow" href="#" target="_blank">米聊</a>
+                                <span class="sep">|</span>
+                                <a rel="nofollow" href="#" target="_blank">多看</a>
+                                <span class="sep">|</span>
+                                <a rel="nofollow" href="#" target="_blank">游戏</a>
+                                <span class="sep">|</span>
+                                <a rel="nofollow" href="#" target="_blank">音乐</a>
+                                <span class="sep">|</span>
+                                <a rel="nofollow" href="#" target="_blank">政企服务</a>
+                                <span class="sep">|</span>
+                                <a rel="nofollow" href="#" target="_blank">小米天猫店</a>
+                                <span class="sep">|</span>
+                                <a rel="nofollow" href="#" target="_blank">小米集团隐私政策</a >
+                                <span class="sep">|</span>
+                                <a rel="nofollow" href="#" target="_blank">小米公司儿童信息保护规则</a>
+                                <span class="sep">|</span>
+                                <a rel="nofollow" href="#" target="_blank" >小米商城隐私政策</a>
+                                <span class="sep">|</span>
+                                <a rel="nofollow" href="#" target="_blank" >小米商城用户协议</a>
+                                <span class="sep">|</span>
+                                <a rel="nofollow" href="#" target="_blank">问题反馈</a>
+                                <span class="sep">|</span>
+                                <a rel="nofollow" href="javascript:void(0);" class="J_siteGlobalRegion">Select Location</a>
+                            </p>
+                            <p>
+                                <a rel="nofollow" href="#" target="_blank">北京互联网法院法律服务工作站</a>
+                                <span class="sep">|</span>
+                                <a rel="nofollow" href="#" target="_blank">中国消费者协会</a>
+                                <span class="sep">|</span>
+                                <a rel="nofollow" href="#" target="_blank">北京市消费者协会</a>
+                            </p>
+                            <p>
+                                &copy;
+                                <a href="javascript:;" title="mi.com">mi.com</a> 京ICP证110507号
+                                <a href="#" target="_blank" rel="nofollow">京ICP备10046444号</a>
+                                <a rel="nofollow" href="#" target="_blank">京公网安备11010802020134号</a>
+                                <a href="#" target="_blank">京网文[2023]0169-004号</a>
+                                <br/>
+                                <a href="#" target="_blank">（京）网械平台备字（2018）第00005号</a>
+                                <a href="#" target="_blank">互联网药品信息服务资格证 (京)-非经营性-2014-0090</a>
+                                <a href="#" target="_blank">营业执照</a>
+                                <a href="#" target="_blank">医疗器械质量公告</a>
+                                <br/>
+                                <a href="#" target="_blank">增值电信业务经营许可证编号：京B2-20180851</a>&nbsp;网络食品经营备案 京食药网食备202010048 &nbsp;
+                                <a href="#" target="_blank">食品经营许可证</a>&nbsp;新出发京批字第直220280号
+                                <br/>
+                                违法和不良信息举报电话：171-5104-4404&nbsp;
+                                <a href="#" target="_blank">知识产权侵权投诉</a>&nbsp;本网站所列数据，除特殊说明，所有数据均出自我司实验室测试
+                            </p>
+                            <p>
+                                <img src="./images/v-logo-2.png" alt="">
+                                <img src="./images/icon3.png" alt="">
+                                <img src="./images/ba10428a4f9495ac310fd0b5e0cf8370.png" alt="">
+                                <img src="./images/8df83cc16c96abb6b278ebbf0ed28cf5.png" alt="">
+                            </p>
+                        </div>
+                    </div>
+                    <div class="solgan">
+                        <img src="./images/slogan2020.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        new Vue({
+           el:"#app",
+           data(){
+               return {
+                   isAllCheck:false,
+                   list: [
+                       {
+                           name:"AlwaySmart轻薄无感保护壳（适用K70/K70 Pro）",
+                           bgSrc:'https://cdn.cnbj1.fds.api.mi-img.com/nr-pub/202401151346_000632848a2a64edf393dac244241236.png?thumb=1&w=80&h=80&f=webp&q=90',
+                           isCheck:false,
+                           price:29,
+                           num:1,
+                           total:29,
+                       },
+                       {
+                           name:"小米6A Type-C快充数据线 原装同款",
+                           bgSrc:'https://cdn.cnbj1.fds.api.mi-img.com/nr-pub/202309271721_303e758bd1de9139f4b46dcc08465ff7.png?thumb=1&w=80&h=80&f=webp&q=90',
+                           isCheck:false,
+                           price:27,
+                           num:1,
+                           total:27,
+                       },
+                       {
+                           name:"Xiaomi Civi 4 Pro 12GB+512GB 春野绿",
+                           bgSrc:'https://cdn.cnbj1.fds.api.mi-img.com/nr-pub/202403201525_771f4d1f908ef67546102f04b66ccc53.png?thumb=1&w=80&h=80&f=webp&q=90',
+                           isCheck:false,
+                           price:3299,
+                           num:1,
+                           total:3299,
+                       },
+                       {
+                           name:"Xiaomi 13 12GB+256GB 黑色",
+                           bgSrc:'https://cdn.cnbj1.fds.api.mi-img.com/nr-pub/202211292354_3561d2993d555486f6504a7c37b62439.png?thumb=1&w=80&h=80&f=webp&q=90',
+                           isCheck:false,
+                           price:3599,
+                           num:1,
+                           total:3599,
+                       }
+                   ]
+               }
+           },
+           computed:{
+               allPirce() {
+                   let price = 0
+                   for(let i = 0; i < this.list.length; i++) {
+                       if(this.list[i].isCheck === true) {
+                           let smallPrice = this.list[i].price * this.list[i].num
+                           
+                           price = price + smallPrice
+                       }
+                   }
+                   return price
+               },
+               allPirces() {
+                   let price = 0
+                   for(let i = 0; i < this.list.length; i++) {
+                       if(this.list[i].isCheck === true) {
+                           let smallPrice = this.list[i].num
+                           
+                           price = price + smallPrice
+                       }
+                   }
+                   return price
+               }
+           },
+           methods: {
+               // 商品增加
+               handClickAdd(index){
+                   this.list[index].num++
+               },
+               handClickReduce(index){
+                   if(this.list[index].num === 1) {
+                       return
+                   }
+                   this.list[index].num--
+                   
+               },
+               // 删除商品
+               handClickDel(index) {
+                   if(confirm("确认删除")){
+                       this.list.splice(index, 1)
+                   }
+               },
+               // 全选
+               handChangeAll() {
+                   if(this.isAllCheck === true) {
+                       this.list.forEach(item => {
+                           item.isCheck = true
+                       })
+                   } else {
+                       this.list.forEach(item => {
+                           item.isCheck = false
+                       })
+                   }
+               }
+           }
+       })
+       
+   </script>
+</body>
+</html>

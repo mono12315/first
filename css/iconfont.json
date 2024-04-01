@@ -1,0 +1,170 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "201525",
+      "name": "礼物 活动",
+      "font_class": "liwuhuodong",
+      "unicode": "f01da",
+      "unicode_decimal": 983514
+    },
+    {
+      "icon_id": "338387",
+      "name": "搜索",
+      "font_class": "sousuo",
+      "unicode": "e623",
+      "unicode_decimal": 58915
+    },
+    {
+      "icon_id": "425649",
+      "name": "购物车",
+      "font_class": "gouwuche",
+      "unicode": "e628",
+      "unicode_decimal": 58920
+    },
+    {
+      "icon_id": "781913",
+      "name": "勾选",
+      "font_class": "xuan",
+      "unicode": "e6b9",
+      "unicode_decimal": 59065
+    },
+    {
+      "icon_id": "1128597",
+      "name": "侧边栏展开",
+      "font_class": "cebianlanzhankai",
+      "unicode": "e7b0",
+      "unicode_decimal": 59312
+    },
+    {
+      "icon_id": "1215735",
+      "name": "BBD右",
+      "font_class": "you",
+      "unicode": "e625",
+      "unicode_decimal": 58917
+    },
+    {
+      "icon_id": "1288664",
+      "name": "地点",
+      "font_class": "didian",
+      "unicode": "e61a",
+      "unicode_decimal": 58906
+    },
+    {
+      "icon_id": "1990040",
+      "name": "时钟",
+      "font_class": "clock",
+      "unicode": "e6be",
+      "unicode_decimal": 59070
+    },
+    {
+      "icon_id": "2674476",
+      "name": "客服",
+      "font_class": "kefu",
+      "unicode": "e626",
+      "unicode_decimal": 58918
+    },
+    {
+      "icon_id": "3120950",
+      "name": "以旧换新",
+      "font_class": "yijiuhuanxin",
+      "unicode": "e50b",
+      "unicode_decimal": 58635
+    },
+    {
+      "icon_id": "3232579",
+      "name": "056话费",
+      "font_class": "huafei",
+      "unicode": "e64a",
+      "unicode_decimal": 58954
+    },
+    {
+      "icon_id": "5387990",
+      "name": "个人头像_o",
+      "font_class": "gerentouxiang_o",
+      "unicode": "ebac",
+      "unicode_decimal": 60332
+    },
+    {
+      "icon_id": "7567711",
+      "name": "24gl-bubbleDots3",
+      "font_class": "24gl-bubbleDots3",
+      "unicode": "e93e",
+      "unicode_decimal": 59710
+    },
+    {
+      "icon_id": "7708018",
+      "name": "爱心",
+      "font_class": "aixin",
+      "unicode": "e619",
+      "unicode_decimal": 58905
+    },
+    {
+      "icon_id": "9898924",
+      "name": "米粉卡",
+      "font_class": "mifenka",
+      "unicode": "e50c",
+      "unicode_decimal": 58636
+    },
+    {
+      "icon_id": "10163977",
+      "name": "F码通道",
+      "font_class": "Fmatongdao",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "10662078",
+      "name": "右指向箭头",
+      "font_class": "youzhixiangjiantou-copy",
+      "unicode": "e503",
+      "unicode_decimal": 58627
+    },
+    {
+      "icon_id": "11463939",
+      "name": "手机",
+      "font_class": "shouji",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "12069951",
+      "name": "15天免费换货_24px.",
+      "font_class": "tianmianfeihuanhuo_px",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "13717140",
+      "name": "7天",
+      "font_class": "7tian",
+      "unicode": "e506",
+      "unicode_decimal": 58630
+    },
+    {
+      "icon_id": "29038369",
+      "name": "修理",
+      "font_class": "xiuli-copy",
+      "unicode": "e502",
+      "unicode_decimal": 58626
+    },
+    {
+      "icon_id": "32142378",
+      "name": "维修-copy",
+      "font_class": "weixiu",
+      "unicode": "e504",
+      "unicode_decimal": 58628
+    },
+    {
+      "icon_id": "35666158",
+      "name": "企业团购-01",
+      "font_class": "qiyetuangou-01",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    }
+  ]
+}
